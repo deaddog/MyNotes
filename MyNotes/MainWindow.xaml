@@ -4,6 +4,7 @@
         Height="200" Width="300" AllowsTransparency="True" ResizeMode="CanResizeWithGrip" WindowStyle="None" BorderBrush="#33000000" BorderThickness="1" Background="#FFFDFD94">
     <Grid>
         <Rectangle Fill="#08000000" Height="28" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textbox" Margin="10,33,10,10" TextWrapping="Wrap" Background="{x:Null}" BorderThickness="0" FontSize="18" FontFamily="Buxton Sketch"/>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0.03" EndPoint="0,1.5">
                 <GradientStop Color="#60ffffff" Offset="0"/>

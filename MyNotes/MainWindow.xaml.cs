@@ -23,6 +23,7 @@ namespace MyNotes
         public MainWindow()
         {
             InitializeComponent();
+            textbox.Focus();
         }
     }
 }
