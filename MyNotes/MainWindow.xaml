@@ -1,7 +1,7 @@
 ﻿<Window x:Class="MyNotes.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Height="200" Width="300" AllowsTransparency="True" ResizeMode="CanResizeWithGrip" WindowStyle="None" BorderBrush="#33000000" BorderThickness="1" Background="#FFFDFD94">
     <Grid>
         
     </Grid>
