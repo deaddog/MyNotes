@@ -8,16 +8,32 @@
         <Button HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Width="24" Margin="0,2,2,0">
             <Button.Template>
                 <ControlTemplate>
-                    <Image Source="Resources/bin.png"/>
+                    <Image x:Name="img" Source="Resources/bin.png"/>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Button.IsMouseOver" Value="True">
+                            <Setter TargetName="img" Property="Source" Value="Resources/bin_over.png"/>
+                        </Trigger>
+                        <Trigger Property="Button.IsPressed" Value="True">
+                            <Setter TargetName="img" Property="Source" Value="Resources/bin_click.png"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Button.Template>
         </Button>
         <Button HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="24" Margin="2,2,0,0">
-        <Button.Template>
-            <ControlTemplate>
-                <Image Source="Resources/plus.png"/>
-            </ControlTemplate>
-        </Button.Template>
+            <Button.Template>
+                <ControlTemplate>
+                    <Image x:Name="img" Source="Resources/plus.png"/>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Button.IsMouseOver" Value="True">
+                            <Setter TargetName="img" Property="Source" Value="Resources/plus_over.png"/>
+                        </Trigger>
+                        <Trigger Property="Button.IsPressed" Value="True">
+                            <Setter TargetName="img" Property="Source" Value="Resources/plus_click.png"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
         </Button>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0.03" EndPoint="0,1.5">
