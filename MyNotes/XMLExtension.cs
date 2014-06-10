@@ -23,7 +23,16 @@ namespace MyNotes
                 value = defaultvalue;
             return value;
         }
+
+        public static bool HasAttribute(this XElement element, XName attributename)
+        {
+            return element.Attribute(attributename) != null;
+        }
         
+        public static bool HasElement(this XElement element, XName elementname)
+        {
+            return element.Element(elementname) != null;
+        }
 
         public static T Attribute<T>(this XElement element, XName attributename, T defaultvalue)
         {
