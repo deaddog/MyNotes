@@ -112,6 +112,24 @@
   <ItemGroup>
     <Resource Include="Resources\plus_over.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\palette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\process.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\process_click.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\process_over.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\palette_click.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\palette_over.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

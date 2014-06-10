@@ -34,6 +34,36 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Width="24" Margin="0,2,28,0">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image x:Name="img" Source="Resources/process.png"/>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="img" Property="Source" Value="Resources/process_over.png"/>
+                            </Trigger>
+                            <Trigger Property="ButtonBase.IsPressed" Value="True">
+                                <Setter TargetName="img" Property="Source" Value="Resources/process_click.png"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Width="24" Margin="0,2,54,0">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image x:Name="img" Source="Resources/palette.png"/>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="img" Property="Source" Value="Resources/palette_over.png"/>
+                            </Trigger>
+                            <Trigger Property="ButtonBase.IsPressed" Value="True">
+                                <Setter TargetName="img" Property="Source" Value="Resources/palette_click.png"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </Grid>
         <TextBox x:Name="textbox"
                  Margin="10,33,10,0" SizeChanged="textbox_SizeChanged" VerticalAlignment="Top"
