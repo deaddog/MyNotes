@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Height="200" Width="300" AllowsTransparency="True" ResizeMode="CanResizeWithGrip" WindowStyle="None" BorderBrush="#33000000" BorderThickness="1" Background="#FFFDFD94">
     <Grid>
-        <Grid Background="#08000000" Height="28" VerticalAlignment="Top">
+        <Grid x:Name="topbar" Background="#08000000" Height="28" VerticalAlignment="Top">
             <Button HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Width="24" Margin="0,2,2,0">
                 <Button.Template>
                     <ControlTemplate>

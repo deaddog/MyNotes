@@ -25,6 +25,18 @@ namespace MyNotes
             InitializeComponent();
             textbox.Focus();
 
+            var barButtons = from UIElement e in topbar.Children where e is Button select e as Button;
+            foreach (var b in barButtons)
+                b.Visibility = System.Windows.Visibility.Hidden;
+
+            Action update = () =>
+            {
+                var visi = topbar.IsMouseOver ? System.Windows.Visibility.Visible : System.Windows.Visibility.Hidden;
+                foreach (var b in barButtons)
+                    b.Visibility = visi;
+            };
+            this.MouseMove += (s, e) => update();
+            this.MouseLeave += (s, e) => update();
             this.MouseLeftButtonDown += (s, e) => DragMove();
         }
     }
