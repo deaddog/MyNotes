@@ -35,7 +35,11 @@
                 </Button.Template>
             </Button>
         </Grid>
-        <TextBox x:Name="textbox" Margin="10,33,10,10" TextWrapping="Wrap" Background="{x:Null}" BorderThickness="0" FontSize="18" FontFamily="Buxton Sketch" AcceptsReturn="True" AcceptsTab="True"/>
+        <TextBox x:Name="textbox"
+                 Margin="10,33,10,0" VerticalAlignment="Top"
+                 Background="{x:Null}" BorderThickness="0"
+                 TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True"
+                 FontSize="18" FontFamily="Buxton Sketch"/>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0.03" EndPoint="0,1.5">
                 <GradientStop Color="#60ffffff" Offset="0"/>
