@@ -36,7 +36,7 @@
             </Button>
         </Grid>
         <TextBox x:Name="textbox"
-                 Margin="10,33,10,0" VerticalAlignment="Top"
+                 Margin="10,33,10,0" SizeChanged="textbox_SizeChanged" VerticalAlignment="Top"
                  Background="{x:Null}" BorderThickness="0"
                  TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True"
                  FontSize="18" FontFamily="Buxton Sketch"/>

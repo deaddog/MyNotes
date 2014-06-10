@@ -39,5 +39,10 @@ namespace MyNotes
             this.MouseLeave += (s, e) => update();
             this.MouseLeftButtonDown += (s, e) => DragMove();
         }
+
+        void textbox_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            this.MinHeight = (sender as TextBox).Margin.Top + e.NewSize.Height + 10;
+        }
     }
 }
