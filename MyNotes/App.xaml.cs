@@ -14,6 +14,9 @@ namespace MyNotes
     /// </summary>
     public partial class App : Application
     {
+        private static readonly string notesfilename = "notes.xml";
+        private static readonly string notesfilepath;
+
         private static string applicationDataPath;
         public static string ApplicationDataPath
         {
@@ -26,6 +29,8 @@ namespace MyNotes
             roamingPath = Path.Combine(roamingPath, "DeadDog", "MyNotes");
             ensurePath(roamingPath);
             applicationDataPath = roamingPath;
+
+            notesfilepath = Path.Combine(roamingPath, notesfilename);
         }
 
         private static void ensurePath(string path)
