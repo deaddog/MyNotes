@@ -31,6 +31,12 @@ namespace MyNotes
 
             if (typeof(T) == typeof(int))
                 ret = Attribute(element, attributename, (int)(object)defaultvalue, int.TryParse);
+            else if (typeof(T) == typeof(double))
+                ret = Attribute(element, attributename, (double)(object)defaultvalue, double.TryParse);
+            else if (typeof(T) == typeof(string))
+                ret = Attribute(element, attributename, (string)(object)defaultvalue, stringTryParse);
+            else if (typeof(T) == typeof(bool))
+                ret = Attribute(element, attributename, (bool)(object)defaultvalue, bool.TryParse);
             else
                 throw new ArgumentException("Unsupported type.");
 
@@ -42,10 +48,22 @@ namespace MyNotes
 
             if (typeof(T) == typeof(int))
                 ret = Element(element, elementname, (int)(object)defaultvalue, int.TryParse);
+            else if (typeof(T) == typeof(double))
+                ret = Element(element, elementname, (double)(object)defaultvalue, double.TryParse);
+            else if (typeof(T) == typeof(string))
+                ret = Element(element, elementname, (string)(object)defaultvalue, stringTryParse);
+            else if (typeof(T) == typeof(bool))
+                ret = Element(element, elementname, (bool)(object)defaultvalue, bool.TryParse);
             else
                 throw new ArgumentException("Unsupported type.");
 
             return (T)ret;
+        }
+
+        private static bool stringTryParse(string input, out string output)
+        {
+            output = input;
+            return true;
         }
     }
 }
