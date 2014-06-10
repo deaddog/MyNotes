@@ -24,6 +24,8 @@ namespace MyNotes
         {
             InitializeComponent();
             textbox.Focus();
+
+            this.MouseLeftButtonDown += (s, e) => DragMove();
         }
     }
 }
