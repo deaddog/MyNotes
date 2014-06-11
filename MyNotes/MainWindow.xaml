@@ -4,21 +4,6 @@
         Height="200" Width="300" AllowsTransparency="True" ResizeMode="CanResizeWithGrip" WindowStyle="None" BorderBrush="#33000000" BorderThickness="1" Background="#FFFDFD94">
     <Grid>
         <Grid x:Name="topbar" Background="#08000000" Height="28" VerticalAlignment="Top">
-            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Width="24" Margin="0,2,2,0">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image x:Name="img" Source="Resources/bin.png"/>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="Button.IsMouseOver" Value="True">
-                                <Setter TargetName="img" Property="Source" Value="Resources/bin_over.png"/>
-                            </Trigger>
-                            <Trigger Property="Button.IsPressed" Value="True">
-                                <Setter TargetName="img" Property="Source" Value="Resources/bin_click.png"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="24" Margin="2,2,0,0">
                 <Button.Template>
                     <ControlTemplate>
@@ -29,6 +14,21 @@
                             </Trigger>
                             <Trigger Property="Button.IsPressed" Value="True">
                                 <Setter TargetName="img" Property="Source" Value="Resources/plus_click.png"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Width="24" Margin="0,2,54,0">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image x:Name="img" Source="Resources/palette.png"/>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="img" Property="Source" Value="Resources/palette_over.png"/>
+                            </Trigger>
+                            <Trigger Property="ButtonBase.IsPressed" Value="True">
+                                <Setter TargetName="img" Property="Source" Value="Resources/palette_click.png"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -49,16 +49,16 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Width="24" Margin="0,2,54,0">
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Width="24" Margin="0,2,2,0">
                 <Button.Template>
                     <ControlTemplate>
-                        <Image x:Name="img" Source="Resources/palette.png"/>
+                        <Image x:Name="img" Source="Resources/bin.png"/>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="img" Property="Source" Value="Resources/palette_over.png"/>
+                            <Trigger Property="Button.IsMouseOver" Value="True">
+                                <Setter TargetName="img" Property="Source" Value="Resources/bin_over.png"/>
                             </Trigger>
-                            <Trigger Property="ButtonBase.IsPressed" Value="True">
-                                <Setter TargetName="img" Property="Source" Value="Resources/palette_click.png"/>
+                            <Trigger Property="Button.IsPressed" Value="True">
+                                <Setter TargetName="img" Property="Source" Value="Resources/bin_click.png"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
