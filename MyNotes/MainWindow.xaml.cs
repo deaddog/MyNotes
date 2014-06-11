@@ -48,6 +48,15 @@ namespace MyNotes
         {
             this.element = element;
 
+            var bounds = element.Element("bounds");
+            if (bounds != null)
+            {
+                this.Left = bounds.Element("left", this.Left);
+                this.Top = bounds.Element("top", this.Top);
+                this.Width = bounds.Element("width", this.Width);
+                this.Height = bounds.Element("height", this.Height);
+            }
+
             this.Topmost = element.Attribute("topmost", this.Topmost);
             this.textbox.Text = element.Element("text", this.textbox.Text);
         }
