@@ -34,6 +34,8 @@ namespace MyNotes
             notesfilepath = Path.Combine(roamingPath, notesfilename);
         }
 
+        private XDocument doc;
+
         private static void ensurePath(string path)
         {
             string[] levels = path.Split(Path.DirectorySeparatorChar);
@@ -57,7 +59,7 @@ namespace MyNotes
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            XDocument doc = new FileInfo(notesfilepath).Exists ? XDocument.Load(notesfilepath) : new XDocument(new XElement("notes"));
+            doc = new FileInfo(notesfilepath).Exists ? XDocument.Load(notesfilepath) : new XDocument(new XElement("notes"));
             XElement notes = doc.Element("notes");
 
             if (notes == null)
@@ -67,6 +69,11 @@ namespace MyNotes
 
             foreach (var n in doc.Element("notes").Elements("note"))
                 new MainWindow(n).Show();
+        }
+
+        private void Application_Exit(object sender, ExitEventArgs e)
+        {
+            doc.Save(notesfilepath);
         }
     }
 }
