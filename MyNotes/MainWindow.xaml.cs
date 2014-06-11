@@ -48,6 +48,7 @@ namespace MyNotes
         {
             this.element = element;
 
+            this.Topmost = element.Attribute("topmost", this.Topmost);
             this.textbox.Text = element.Element("text", this.textbox.Text);
         }
 
