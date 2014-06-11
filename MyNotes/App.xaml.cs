@@ -63,7 +63,7 @@ namespace MyNotes
             if (notes == null)
                 throw new InvalidDataException("The " + notesfilename + " must contain a 'notes' root element.");
             if (!notes.HasElement("note"))
-                notes.Add("note");
+                notes.Add(new XElement("note"));
 
             foreach (var n in doc.Element("notes").Elements("note"))
                 new MainWindow(n).Show();
