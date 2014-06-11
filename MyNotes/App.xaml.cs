@@ -57,7 +57,7 @@ namespace MyNotes
             }
         }
 
-        private void Application_Startup(object sender, StartupEventArgs e)
+        protected override void OnStartup(StartupEventArgs e)
         {
             doc = new FileInfo(notesfilepath).Exists ? XDocument.Load(notesfilepath) : new XDocument(new XElement("notes"));
             XElement notes = doc.Element("notes");
@@ -71,7 +71,7 @@ namespace MyNotes
                 new MainWindow(n).Show();
         }
 
-        private void Application_Exit(object sender, ExitEventArgs e)
+        protected override void OnExit(ExitEventArgs e)
         {
             doc.Save(notesfilepath);
         }
