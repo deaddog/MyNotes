@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Xml.Linq;
 
 namespace MyNotes
 {
@@ -52,6 +53,20 @@ namespace MyNotes
                 if (!dir.Exists)
                     dir.Create();
             }
+        }
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            XDocument doc = new FileInfo(notesfilepath).Exists ? XDocument.Load(notesfilepath) : new XDocument(new XElement("notes"));
+            XElement notes = doc.Element("notes");
+
+            if (notes == null)
+                throw new InvalidDataException("The " + notesfilename + " must contain a 'notes' root element.");
+            if (!notes.HasElement("note"))
+                notes.Add("note");
+
+            foreach (var n in doc.Element("notes").Elements("note"))
+                new MainWindow(n).Show();
         }
     }
 }
