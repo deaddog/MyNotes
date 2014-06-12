@@ -79,5 +79,11 @@ namespace MyNotes
         {
             this.MinHeight = (sender as TextBox).Margin.Top + e.NewSize.Height + 10;
         }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            element.Remove();
+            this.Close();
+        }
     }
 }
