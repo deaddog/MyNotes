@@ -59,6 +59,20 @@ namespace MyNotes
 
             this.Topmost = element.Attribute("topmost", this.Topmost);
             this.textbox.Text = element.Element("text", this.textbox.Text);
+
+            this.textbox.TextChanged += (s, e) => element.SetElementValue("text", textbox.Text);
+            this.SizeChanged += (s, e) =>
+            {
+                var b = element.Element("bounds", true);
+                b.SetElementValue("width", Width);
+                b.SetElementValue("height", Height);
+            };
+            this.LocationChanged += (s, e) =>
+            {
+                var b = element.Element("bounds", true);
+                b.SetElementValue("left", this.Left);
+                b.SetElementValue("top", this.Top);
+            };
         }
 
         void textbox_SizeChanged(object sender, SizeChangedEventArgs e)
