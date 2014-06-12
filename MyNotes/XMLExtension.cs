@@ -28,10 +28,20 @@ namespace MyNotes
         {
             return element.Attribute(attributename) != null;
         }
-        
         public static bool HasElement(this XElement element, XName elementname)
         {
             return element.Element(elementname) != null;
+        }
+
+        public static XElement Element(this XElement element, XName name, bool create)
+        {
+            XElement child = element.Element(name);
+            if(child == null && create)
+            {
+                child = new XElement(name);
+                element.Add(child);
+            }
+            return child;
         }
 
         public static T Attribute<T>(this XElement element, XName attributename, T defaultvalue)
