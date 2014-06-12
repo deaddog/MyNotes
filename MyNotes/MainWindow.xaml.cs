@@ -85,5 +85,16 @@ namespace MyNotes
             element.Remove();
             this.Close();
         }
+
+        private void Plus_Click(object sender, RoutedEventArgs e)
+        {
+            var ele = new XElement("note");
+            element.Parent.Add(ele);
+
+            MainWindow mw = new MainWindow(ele);
+            mw.Width = this.Width;
+            mw.Height = this.Height;
+            mw.Show();
+        }
     }
 }
