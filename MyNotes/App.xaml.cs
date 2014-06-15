@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Xml.Linq;
 
@@ -34,8 +30,6 @@ namespace MyNotes
             notesfilepath = Path.Combine(roamingPath, notesfilename);
         }
 
-        private XDocument doc;
-
         private static void ensurePath(string path)
         {
             string[] levels = path.Split(Path.DirectorySeparatorChar);
@@ -57,6 +51,20 @@ namespace MyNotes
             }
         }
 
+        private readonly double waitMinutes = 10;
+
+        private XDocument doc;
+        private Timer saveTimer;
+
+        public App()
+        {
+            this.saveTimer = new Timer(1000 * 60 * waitMinutes)
+            {
+                AutoReset = false
+            };
+            this.saveTimer.Elapsed += (s, e) => doc.Save(notesfilepath);
+        }
+
         protected override void OnStartup(StartupEventArgs e)
         {
             doc = new FileInfo(notesfilepath).Exists ? XDocument.Load(notesfilepath) : new XDocument(new XElement("notes"));
@@ -69,6 +77,8 @@ namespace MyNotes
 
             foreach (var n in doc.Element("notes").Elements("note"))
                 new MainWindow(n).Show();
+
+            doc.Changed += (s, ee) => { saveTimer.Stop(); saveTimer.Start(); };
         }
 
         protected override void OnExit(ExitEventArgs e)
