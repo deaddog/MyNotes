@@ -76,7 +76,8 @@ namespace MyNotes
                 notes.Add(new XElement("note"));
 
             foreach (var n in doc.Element("notes").Elements("note"))
-                new MainWindow(n).Show();
+                if (!n.Attribute("deleted", false))
+                    new MainWindow(n).Show();
 
             doc.Changed += (s, ee) => { saveTimer.Stop(); saveTimer.Start(); };
         }
