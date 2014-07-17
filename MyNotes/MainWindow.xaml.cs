@@ -84,7 +84,6 @@ namespace MyNotes
             element.SetAttributeValue("deleted", true);
             this.Close();
         }
-
         private void Plus_Click(object sender, RoutedEventArgs e)
         {
             var ele = new XElement("note");
@@ -94,6 +93,14 @@ namespace MyNotes
             mw.Width = this.Width;
             mw.Height = this.Height;
             mw.Show();
+        }
+        private void Pin_Checked(object sender, RoutedEventArgs e)
+        {
+            this.Topmost = true;
+        }
+        private void Pin_Unchecked(object sender, RoutedEventArgs e)
+        {
+            this.Topmost = false;
         }
     }
 }
