@@ -22,6 +22,7 @@ namespace MyNotes
     public partial class MainWindow : Window
     {
         private XElement element;
+        private bool deleting = false;
 
         public MainWindow()
         {
@@ -74,6 +75,13 @@ namespace MyNotes
             };
         }
 
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            if (!deleting && !(App.Current as App).AllowClose)
+                e.Cancel = true;
+            base.OnClosing(e);
+        }
+
         void textbox_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             this.MinHeight = (sender as TextBox).Margin.Top + e.NewSize.Height + 10;
@@ -82,6 +90,7 @@ namespace MyNotes
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             element.SetAttributeValue("deleted", true);
+            this.deleting = true;
             this.Close();
         }
         private void Plus_Click(object sender, RoutedEventArgs e)

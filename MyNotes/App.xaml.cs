@@ -20,6 +20,12 @@ namespace MyNotes
             get { return applicationDataPath; }
         }
 
+        private bool allowClose = false;
+        public bool AllowClose
+        {
+            get { return allowClose; }
+        }
+
         static App()
         {
             var roamingPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData, Environment.SpecialFolderOption.Create);
@@ -85,6 +91,7 @@ namespace MyNotes
         protected override void OnExit(ExitEventArgs e)
         {
             doc.Save(notesfilepath);
+            allowClose = true;
         }
     }
 }
