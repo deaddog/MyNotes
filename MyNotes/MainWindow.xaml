@@ -34,21 +34,21 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Width="24" Margin="0,2,28,0">
-                <Button.Template>
+            <CheckBox HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Width="24" Margin="0,2,28,0">
+                <CheckBox.Template>
                     <ControlTemplate>
                         <Image x:Name="img" Source="Resources/pin.png"/>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="img" Property="Source" Value="Resources/pin_over.png"/>
                             </Trigger>
-                            <Trigger Property="ButtonBase.IsPressed" Value="True">
+                            <Trigger Property="CheckBox.IsChecked" Value="True">
                                 <Setter TargetName="img" Property="Source" Value="Resources/pin_click.png"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
-                </Button.Template>
-            </Button>
+                </CheckBox.Template>
+            </CheckBox>
             <Button HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Width="24" Margin="0,2,2,0" Click="Close_Click">
                 <Button.Template>
                     <ControlTemplate>
