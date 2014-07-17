@@ -22,7 +22,7 @@
             <Button HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Width="24" Margin="0,2,54,0">
                 <Button.Template>
                     <ControlTemplate>
-                        <Image x:Name="img" Source="Resources/palette.png"/>
+                        <Image x:Name="img" Source="Resources/palette.png" Visibility="Collapsed"/>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="img" Property="Source" Value="Resources/palette_over.png"/>
