@@ -34,7 +34,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <CheckBox HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Width="24" Margin="0,2,28,0" Checked="Pin_Checked" Unchecked="Pin_Unchecked">
+            <CheckBox x:Name="pin" HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Width="24" Margin="0,2,28,0" Checked="Pin_Checked" Unchecked="Pin_Unchecked">
                 <CheckBox.Template>
                     <ControlTemplate>
                         <Image x:Name="img" Source="Resources/pin.png"/>

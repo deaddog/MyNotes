@@ -56,7 +56,7 @@ namespace MyNotes
                 this.Height = bounds.Element("height", this.Height);
             }
 
-            this.Topmost = element.Attribute("topmost", this.Topmost);
+            pin.IsChecked = this.Topmost = element.Attribute("topmost", this.Topmost);
             this.textbox.Text = element.Element("text", this.textbox.Text);
 
             this.textbox.TextChanged += (s, e) => element.SetElementValue("text", textbox.Text);
@@ -97,10 +97,12 @@ namespace MyNotes
         private void Pin_Checked(object sender, RoutedEventArgs e)
         {
             this.Topmost = true;
+            element.SetAttributeValue("topmost", true);
         }
         private void Pin_Unchecked(object sender, RoutedEventArgs e)
         {
             this.Topmost = false;
+            element.SetAttributeValue("topmost", false);
         }
     }
 }
