@@ -143,6 +143,16 @@ namespace MyNotes.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pin_on {
+            get {
+                object obj = ResourceManager.GetObject("pin_on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pin_over {
             get {
                 object obj = ResourceManager.GetObject("pin_over", resourceCulture);
