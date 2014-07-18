@@ -36,7 +36,8 @@ namespace MyNotes
             {
                 var visibility = topbar.IsMouseOver ? System.Windows.Visibility.Visible : System.Windows.Visibility.Hidden;
                 foreach (UIElement c in topbar.Children)
-                    c.Visibility = visibility;
+                    if (!(c is CheckBox) || !(c as CheckBox).IsChecked.Value)
+                        c.Visibility = visibility;
             };
             this.MouseMove += (s, e) => update();
             this.MouseLeave += (s, e) => update();
@@ -58,6 +59,7 @@ namespace MyNotes
             }
 
             pin.IsChecked = this.Topmost = element.Attribute("topmost", this.Topmost);
+            pin.Visibility = pin.IsChecked.Value ? System.Windows.Visibility.Visible : System.Windows.Visibility.Hidden;
             this.textbox.Text = element.Element("text", this.textbox.Text);
 
             this.textbox.TextChanged += (s, e) => element.SetElementValue("text", textbox.Text);
