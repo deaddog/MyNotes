@@ -1,0 +1,3 @@
+[submodule "WPFNotifyIcon"]
+	path = WPFNotifyIcon
+	url = https://github.com/deaddog/WPFNotifyIcon.git
