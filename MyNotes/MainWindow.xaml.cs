@@ -75,12 +75,18 @@ namespace MyNotes
                 b.SetElementValue("left", this.Left);
                 b.SetElementValue("top", this.Top);
             };
+
+            (App.Current as App).AddNote(this);
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
             if (!deleting && !(App.Current as App).AllowClose)
                 e.Cancel = true;
+
+            if (!e.Cancel)
+                (App.Current as App).RemoveNote(this);
+
             base.OnClosing(e);
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Timers;
 using System.Windows;
@@ -63,6 +64,8 @@ namespace MyNotes
         private XDocument doc;
         private Timer saveTimer;
 
+        private List<MainWindow> windows;
+
         private Window hideWindow;
         private Hardcodet.Wpf.TaskbarNotification.TaskbarIcon icon;
 
@@ -73,6 +76,8 @@ namespace MyNotes
                 AutoReset = false
             };
             this.saveTimer.Elapsed += (s, e) => doc.Save(notesfilepath);
+
+            this.windows = new List<MainWindow>();
 
             this.hideWindow = new Window()
             {
@@ -88,8 +93,15 @@ namespace MyNotes
             hideWindow.Hide();
         }
 
+        public void AddNote(MainWindow window)
+        { this.windows.Add(window); }
+        public void RemoveNote(MainWindow window)
+        { this.windows.Remove(window); }
+
         private void ShowNotes()
         {
+            foreach (var w in windows)
+                w.Activate();
         }
 
         private ContextMenu buildContextMenu()
