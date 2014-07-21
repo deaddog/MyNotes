@@ -62,6 +62,8 @@ namespace MyNotes
         private XDocument doc;
         private Timer saveTimer;
 
+        private Window hideWindow;
+
         public App()
         {
             this.saveTimer = new Timer(1000 * 60 * waitMinutes)
@@ -69,6 +71,19 @@ namespace MyNotes
                 AutoReset = false
             };
             this.saveTimer.Elapsed += (s, e) => doc.Save(notesfilepath);
+
+            this.hideWindow = new Window()
+            {
+                Top = -100,
+                Left = -100,
+                Width = 1,
+                Height = 1,
+                ShowActivated = false,
+                ShowInTaskbar = false,
+                WindowStyle = WindowStyle.ToolWindow
+            };
+            hideWindow.Show();
+            hideWindow.Hide();
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -86,7 +101,7 @@ namespace MyNotes
 
             foreach (var n in doc.Element("notes").Elements("note"))
                 if (!n.Attribute("deleted", false))
-                    new MainWindow(n).Show();
+                    new MainWindow(n) { Owner = hideWindow }.Show();
 
             doc.Changed += (s, ee) => { saveTimer.Stop(); saveTimer.Start(); };
         }
