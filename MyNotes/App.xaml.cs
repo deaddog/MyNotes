@@ -2,6 +2,7 @@
 using System.IO;
 using System.Timers;
 using System.Windows;
+using System.Windows.Controls;
 using System.Xml.Linq;
 
 namespace MyNotes
@@ -86,6 +87,13 @@ namespace MyNotes
             hideWindow.Hide();
         }
 
+        private ContextMenu buildContextMenu()
+        {
+            ContextMenu menu = new System.Windows.Controls.ContextMenu();
+
+            return menu;
+        }
+
         protected override void OnStartup(StartupEventArgs e)
         {
             doc = new FileInfo(notesfilepath).Exists ? XDocument.Load(notesfilepath) : new XDocument(new XElement("notes"));
@@ -98,6 +106,7 @@ namespace MyNotes
 
             var icon = new Hardcodet.Wpf.TaskbarNotification.TaskbarIcon();
             icon.Icon = MyNotes.Properties.Resources.toolbar;
+            icon.ContextMenu = buildContextMenu();
 
             foreach (var n in doc.Element("notes").Elements("note"))
                 if (!n.Attribute("deleted", false))
