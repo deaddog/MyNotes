@@ -88,9 +88,23 @@ namespace MyNotes
             hideWindow.Hide();
         }
 
+        private void ShowNotes()
+        {
+        }
+
         private ContextMenu buildContextMenu()
         {
             ContextMenu menu = new System.Windows.Controls.ContextMenu();
+
+            {   // Show all notes
+                MenuItem item = new MenuItem()
+                {
+                    Header = "_Show Notes",
+                    FontWeight = FontWeights.Bold
+                };
+                item.Click += (s, e) => ShowNotes();
+                menu.Items.Add(item);
+            }
 
             {   // Exit application
                 MenuItem item = new MenuItem()
@@ -117,6 +131,7 @@ namespace MyNotes
             icon = new Hardcodet.Wpf.TaskbarNotification.TaskbarIcon();
             icon.Icon = MyNotes.Properties.Resources.toolbar;
             icon.ContextMenu = buildContextMenu();
+            icon.TrayLeftMouseDown += (s, ee) => ShowNotes();
 
             foreach (var n in doc.Element("notes").Elements("note"))
                 if (!n.Attribute("deleted", false))
