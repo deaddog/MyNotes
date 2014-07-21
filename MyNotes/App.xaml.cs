@@ -91,6 +91,15 @@ namespace MyNotes
         {
             ContextMenu menu = new System.Windows.Controls.ContextMenu();
 
+            {   // Exit application
+                MenuItem item = new MenuItem()
+                {
+                    Header = "E_xit"
+                };
+                item.Click += (s, e) => this.Shutdown();
+                menu.Items.Add(item);
+            }
+
             return menu;
         }
 
