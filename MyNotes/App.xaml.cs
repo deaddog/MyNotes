@@ -81,6 +81,9 @@ namespace MyNotes
             if (!notes.HasElement("note"))
                 notes.Add(new XElement("note"));
 
+            var icon = new Hardcodet.Wpf.TaskbarNotification.TaskbarIcon();
+            icon.Icon = MyNotes.Properties.Resources.toolbar;
+
             foreach (var n in doc.Element("notes").Elements("note"))
                 if (!n.Attribute("deleted", false))
                     new MainWindow(n).Show();
