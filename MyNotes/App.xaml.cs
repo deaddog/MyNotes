@@ -64,6 +64,7 @@ namespace MyNotes
         private Timer saveTimer;
 
         private Window hideWindow;
+        private Hardcodet.Wpf.TaskbarNotification.TaskbarIcon icon;
 
         public App()
         {
@@ -113,7 +114,7 @@ namespace MyNotes
             if (!notes.HasElement("note"))
                 notes.Add(new XElement("note"));
 
-            var icon = new Hardcodet.Wpf.TaskbarNotification.TaskbarIcon();
+            icon = new Hardcodet.Wpf.TaskbarNotification.TaskbarIcon();
             icon.Icon = MyNotes.Properties.Resources.toolbar;
             icon.ContextMenu = buildContextMenu();
 
@@ -126,6 +127,8 @@ namespace MyNotes
 
         protected override void OnExit(ExitEventArgs e)
         {
+            icon.Dispose();
+
             doc.Save(notesfilepath);
             allowClose = true;
         }
